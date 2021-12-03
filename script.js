@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let start = document.getElementById('start');
 
-    start.addEventListener('click', function () {
+    start.addEventListener('click', () => {
         toggleClass(document.getElementById('start-screen'), 'hide', 'show');
         toggleClass(document.getElementById('game-screen'), 'hide', 'show');
 
@@ -13,10 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    function toggleClass(element) {
-        for (let i = 1; i < arguments.length; i++){
-            element.classList.toggle(arguments[i]);
-        }
+    function toggleClass(element, ...classNames) {
+        classNames.forEach(name => element.classList.toggle(name));
     }
 
 
